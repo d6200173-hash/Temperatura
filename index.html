@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Conversor moderno de temperaturas entre Celsius, Fahrenheit y Kelvin.">
+  <meta name="theme-color" content="#0f172a">
+  <title>Conversor de Temperaturas</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="app-shell">
+    <section class="converter-card" aria-labelledby="app-title">
+      <header class="app-header">
+        <div class="brand-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" role="img">
+            <path d="M14 14.76V5a2 2 0 0 0-4 0v9.76a4 4 0 1 0 4 0Z"></path>
+            <path d="M12 9v7"></path>
+          </svg>
+        </div>
+        <div>
+          <p class="eyebrow">Conversión rápida y precisa</p>
+          <h1 id="app-title">Conversor de Temperaturas</h1>
+          <p class="description">Convierte fácilmente valores entre Celsius, Fahrenheit y Kelvin.</p>
+        </div>
+      </header>
+
+      <form id="temperature-form" novalidate>
+        <div class="field-group">
+          <label for="temperature-value">Temperatura</label>
+          <div class="input-wrapper">
+            <span class="input-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M12 2v20M7 6h5M7 10h5"></path></svg>
+            </span>
+            <input
+              id="temperature-value"
+              name="temperature"
+              type="text"
+              inputmode="decimal"
+              autocomplete="off"
+              placeholder="Ejemplo: 25"
+              aria-describedby="input-message"
+            >
+          </div>
+          <p id="input-message" class="message" aria-live="polite">Ingresa un valor para comenzar.</p>
+        </div>
+
+        <div class="units-row">
+          <div class="field-group unit-field">
+            <label for="from-unit">Unidad de origen</label>
+            <select id="from-unit" name="from-unit">
+              <option value="C">Celsius (°C)</option>
+              <option value="F">Fahrenheit (°F)</option>
+              <option value="K">Kelvin (K)</option>
+            </select>
+          </div>
+
+          <button id="swap-button" class="icon-button swap-button" type="button" aria-label="Intercambiar unidades" title="Intercambiar unidades">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="m7 7 3-3m-3 3 3 3M7 7h11M17 17l-3-3m3 3-3 3m3-3H6"></path>
+            </svg>
+          </button>
+
+          <div class="field-group unit-field">
+            <label for="to-unit">Unidad de destino</label>
+            <select id="to-unit" name="to-unit">
+              <option value="F">Fahrenheit (°F)</option>
+              <option value="C">Celsius (°C)</option>
+              <option value="K">Kelvin (K)</option>
+            </select>
+          </div>
+        </div>
+
+        <section id="result-panel" class="result-panel neutral" aria-live="polite" aria-atomic="true">
+          <div class="temperature-indicator" aria-hidden="true">
+            <span class="indicator-icon">●</span>
+            <span id="indicator-label">Esperando temperatura</span>
+          </div>
+          <p class="result-label">Resultado</p>
+          <output id="result-value" for="temperature-value from-unit to-unit">--</output>
+          <p id="conversion-detail" class="conversion-detail">El resultado aparecerá aquí</p>
+          <div class="thermal-scale" aria-hidden="true">
+            <span>Frío</span>
+            <div class="scale-track"><span id="scale-marker" class="scale-marker"></span></div>
+            <span>Calor</span>
+          </div>
+        </section>
+
+        <button id="clear-button" class="clear-button" type="button">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M3 6h18M8 6V4h8v2m-9 0 1 14h8l1-14M10 10v6m4-6v6"></path>
+          </svg>
+          Limpiar
+        </button>
+      </form>
+
+      <footer>
+        <span class="status-dot" aria-hidden="true"></span>
+        Funciona sin conexión y no almacena datos
+      </footer>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
